@@ -7,7 +7,7 @@ spec:
   interval: 1m
   url: https://github.com/kubernetes/ingress-nginx/
   ref:
-    branch: develop
+    branch: main
   ignore: |
     # exclude all
     /*
