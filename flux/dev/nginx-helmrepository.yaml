@@ -1,0 +1,15 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: nginx-ingress
+  namespace: nginx-ingress-controller
+spec:
+  interval: 1m
+  url: https://github.com/kubernetes/ingress-nginx/
+  ref:
+    branch: develop
+  ignore: |
+    # exclude all
+    /*
+    # include charts directory
+    !/charts/
