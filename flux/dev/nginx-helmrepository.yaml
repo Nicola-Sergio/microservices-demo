@@ -15,7 +15,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: NginxHelmRepo
+  name: nginx-helmrepo
   namespace: nginx-ingress-controller
 spec:
   interval: 5m0s

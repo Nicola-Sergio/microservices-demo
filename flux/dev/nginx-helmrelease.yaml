@@ -28,7 +28,7 @@ spec:
       chart: ingress-nginx
       sourceRef:
         kind: HelmRepository
-        name: NginxHelmRepo
+        name: nginx-helmrepo
         namespace: nginx-ingress-controller
  
 
