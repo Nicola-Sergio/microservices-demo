@@ -1,3 +1,20 @@
+# apiVersion: helm.toolkit.fluxcd.io/v2beta1
+# kind: HelmRelease
+# metadata:
+#   name: nginx-ingress
+#   namespace: nginx-ingress-controller
+# spec:
+#   interval: 5m
+#   chart:
+#     spec:
+#       chart: ./charts/ingress-nginx
+#       sourceRef:
+#         kind: GitRepository
+#         name: nginx-ingress
+#         namespace: nginx-ingress-controller
+#       interval: 1m
+#   values:
+#     replicaCount: 2
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -5,13 +22,13 @@ metadata:
   namespace: nginx-ingress-controller
 spec:
   interval: 5m
+  releaseName: nginx-ingress
   chart:
     spec:
-      chart: ./charts/ingress-nginx
+      chart: ingress-nginx
       sourceRef:
-        kind: GitRepository
-        name: nginx-ingress
+        kind: HelmRepository
+        name: NginxHelmRepo
         namespace: nginx-ingress-controller
-      interval: 1m
-  values:
-    replicaCount: 2
+ 
+
