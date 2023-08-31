@@ -1,11 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deployment.name /* include "demo-project.fullname" . */ }}
-  labels:
-     {{- with .Values.deployment.labels }}
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
+  name: {{ .Values.deployment.name  }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -16,13 +12,13 @@ spec:
   template:
     metadata:
       labels:
-        {{- with .Values.podLabels }}
+        {{- with .Values.deployment.labels }}
     {{- toYaml . | nindent 8 }}
   {{- end }}
     spec:
       containers:
         - name: {{ .Values.container.name}}
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag}}
+          image: {{ .Values.image }}
           ports:
-              containerPort: {{ .Values.service.port }}
+              containerPort: {{ .Values.service.targetPort }}
               protocol: TCP

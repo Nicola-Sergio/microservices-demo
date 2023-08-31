@@ -4,11 +4,7 @@
 
 replicaCount: 1
 
-image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.0"
+image: alpine
 
 imagePullSecrets: []
 nameOverride: ""
@@ -47,10 +43,12 @@ service:
   name: microservice
   labels: {}
   targetPort: 80
+  selectors: {}
 
 deployment: 
   name: microservice
   labels: {}
+  matchLabels: {}
 
 ingress:
   path_type: Prefix

@@ -1,0 +1,36 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: emailservice-helmrelease
+  namespace: microservices-demo
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: ./charts/microservice
+      sourceRef:
+        kind: GitRepository
+        name: chart-repo
+        namespace: microservices-demo
+      interval: 1m
+  values:
+    service:
+      name: emailservice
+      type: ClusterIP
+      selectors:
+        app: emailservice
+      port: 5000
+      targetPort: 8080
+    deployment:
+      name: emailservice
+      labels:
+        app: emailservice
+      matchLabels:
+        app: emailservice
+      container:
+        name: server 
+    image: gcr.io/google-samples/microservices-demo/emailservice:v0.8.0
+    ingress: 
+      name: email-ingress
+      path : "/email"
+      path_type: Prefix      
