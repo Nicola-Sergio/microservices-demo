@@ -16,7 +16,7 @@ spec:
     {{- toYaml . | nindent 8 }}
   {{- end }}
     spec:
-    {{- if .Values.serviceAccount.create -}}
+    {{- if .Values.serviceAccount.create }}
       serviceAccountName: {{ include "demo-project.serviceAccountName" . }}
     {{- end }}
       containers:
