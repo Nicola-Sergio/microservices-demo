@@ -22,4 +22,3 @@
 *.tmproj
 .vscode/
 
-charts/microservice/templates/serviceaccount.yaml
