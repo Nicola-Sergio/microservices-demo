@@ -1,0 +1,39 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: frontendservice-helmrelease
+  namespace: microservices-demo
+spec:
+  releaseName: frontendservice
+  targetNamespace: microservices-demo
+  interval: 5m
+  chart:
+    spec:
+      chart: ./charts/microservice
+      version: "0.6.0"
+      sourceRef:
+        kind: GitRepository
+        name: flux-system
+        namespace: flux-system
+      interval: 1m
+  values: 
+    service:
+      name: frontendservice
+      type: ClusterIP
+      selectors:
+        app: frontend
+      port: 80
+      targetPort: 8080
+    deployment:
+      name: frontendservice
+      labels:
+        app: frontend
+      matchLabels:
+        app: frontend
+      container:
+        name: server 
+    image: gcr.io/google-samples/microservices-demo/frontend:v0.8.0
+    ingress: 
+      name: frontend-ingress
+      path : "/frontend"
+      path_type: Prefix      
