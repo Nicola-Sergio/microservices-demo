@@ -10,11 +10,11 @@ spec:
   chart:
     spec:
       chart: ./charts/microservice
-      version: "0.3.0"
+      version: "0.4.0"
       sourceRef:
         kind: GitRepository
-        name: flux-system
-        namespace: flux-system
+        name: chart-repo
+        namespace: microservices-demo
       interval: 1m
   values:
     service:
