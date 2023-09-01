@@ -4,6 +4,8 @@ metadata:
   name: emailservice-helmrelease
   namespace: microservices-demo
 spec:
+  releaseName: emailservice
+  targetNamespace: microservices-demo
   interval: 5m
   chart:
     spec:
@@ -11,8 +13,8 @@ spec:
       version: "0.3.0"
       sourceRef:
         kind: GitRepository
-        name: chart-repo
-        namespace: microservices-demo
+        name: flux-system
+        namespace: flux-system
       interval: 1m
   values:
     service:
