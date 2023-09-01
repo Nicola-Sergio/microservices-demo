@@ -23,5 +23,5 @@ spec:
         - name: {{ .Values.container.name}}
           image: {{ .Values.image }}
           ports:
-              containerPort: {{ .Values.service.targetPort }}
-              protocol: TCP
+          - containerPort: {{ .Values.service.targetPort }}
+            protocol: TCP
