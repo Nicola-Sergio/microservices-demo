@@ -16,24 +16,24 @@ spec:
         name: flux-system
         namespace: flux-system
       interval: 1m
-  values:
-    service:
-      name: emailservice
-      type: ClusterIP
-      selectors:
-        app: emailservice
-      port: 5000
-      targetPort: 8080
-    deployment:
-      name: emailservice
-      labels:
-        app: emailservice
-      matchLabels:
-        app: emailservice
-      container:
-        name: server 
-    image: gcr.io/google-samples/microservices-demo/emailservice:v0.8.0
-    ingress: 
-      name: email-ingress
-      path : "/email"
-      path_type: Prefix      
+  values: {}
+    # service:
+    #   name: emailservice
+    #   type: ClusterIP
+    #   selectors:
+    #     app: emailservice
+    #   port: 5000
+    #   targetPort: 8080
+    # deployment:
+    #   name: emailservice
+    #   labels:
+    #     app: emailservice
+    #   matchLabels:
+    #     app: emailservice
+    #   container:
+    #     name: server 
+    # image: gcr.io/google-samples/microservices-demo/emailservice:v0.8.0
+    # ingress: 
+    #   name: email-ingress
+    #   path : "/email"
+    #   path_type: Prefix      
