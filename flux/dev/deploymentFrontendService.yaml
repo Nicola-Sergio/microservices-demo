@@ -14,7 +14,7 @@ spec:
       upgrade:
         disableWait: true
       chart: ./charts/microservice
-      version: "0.6.0"
+      version: "0.7.0"
       sourceRef:
         kind: GitRepository
         name: flux-system
