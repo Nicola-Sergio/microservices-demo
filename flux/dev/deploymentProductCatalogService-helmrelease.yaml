@@ -1,14 +1,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: frontendservice-helmrelease
+  name: productcatalogservice-helmrelease
   namespace: microservices-demo
 spec:
   install:
     disableWait: true
   upgrade:
     disableWait: true
-  releaseName: frontendservice
+  releaseName: productcatalogservice
   targetNamespace: microservices-demo
   interval: 5m
   chart:
@@ -22,22 +22,27 @@ spec:
       interval: 1m
   values: 
     service:
-      name: frontendservice
+      name: productcatalogservice
       type: ClusterIP
       selectors:
-        app: frontend
-      port: 80
-      targetPort: 8080
+        app: productcatalogservice
+      port: 3550
+      targetPort: 3550
     deployment:
-      name: frontendservice
+      name: productcatalogservice
       labels:
-        app: frontend
+        app: productcatalogservice
       matchLabels:
-        app: frontend
+        app: productcatalogservice
       container:
         name: server 
-    image: gcr.io/google-samples/microservices-demo/frontend:v0.8.0
+    image: gcr.io/google-samples/microservices-demo/productcatalogservice:v0.8.0
     ingress: 
-      name: frontend-ingress
-      path : "/frontend"
+      name: productcatalogservice-ingress
+      path : "/catalog"
       path_type: Prefix      
+    env:
+    - name: PORT
+      value: "3550"
+    - name: DISABLE_PROFILER
+      value: "1"

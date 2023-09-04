@@ -20,6 +20,8 @@ serviceAccount:
 
 podAnnotations: {}
 
+env: []
+
 podLabels: {}
 
 container:
