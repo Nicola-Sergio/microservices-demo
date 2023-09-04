@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: ./charts/microservice
-      version: "0.9.0"
+      version: "0.1.1"
       sourceRef:
         kind: GitRepository
         name: flux-system
