@@ -30,5 +30,13 @@ spec:
         kind: HelmRepository
         name: nginx-helmrepo
         namespace: nginx-ingress-controller
+  values: 
+    controller:
+      addHeaders: 
+        client-max-body-size: 50M
+        keep-alive: "3600"
+        proxy-buffer-size: 500m
+        proxy-buffers-number: "8" 
+
  
 
