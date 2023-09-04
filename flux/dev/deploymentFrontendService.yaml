@@ -9,6 +9,10 @@ spec:
   interval: 5m
   chart:
     spec:
+      install:
+        disableWait: true
+      upgrade:
+        disableWait: true
       chart: ./charts/microservice
       version: "0.6.0"
       sourceRef:
