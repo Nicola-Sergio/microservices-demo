@@ -4,15 +4,17 @@ metadata:
   name: frontendservice-helmrelease
   namespace: microservices-demo
 spec:
+  install:
+    disableWait: true
+  upgrade:
+    disableWait: true
   releaseName: frontendservice
   targetNamespace: microservices-demo
   interval: 5m
   chart:
     spec:
-      install:
-        disableWait: true
       chart: ./charts/microservice
-      version: "0.6.0"
+      version: "0.8.0"
       sourceRef:
         kind: GitRepository
         name: flux-system
