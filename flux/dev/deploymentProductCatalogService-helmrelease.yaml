@@ -43,7 +43,7 @@ spec:
       path : "/"
       path_type: Prefix
       host: 
-        enabled: true
+        enabled: false
         name: productcatalogservice
     env:
     - name: PORT
