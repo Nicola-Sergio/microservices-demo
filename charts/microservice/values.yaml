@@ -57,12 +57,13 @@ ingress:
   path_type: Prefix
   path: "/"
   name: prova
-  enabled: false
+  enabled: true
   className: ""
   labels: {}
   annotations:
-  host: chart-example.local
-    {}
+  host: 
+    enabled: false
+    name: ""
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
