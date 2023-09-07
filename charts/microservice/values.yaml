@@ -61,6 +61,7 @@ ingress:
   className: ""
   labels: {}
   annotations:
+  host: chart-example.local
     {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"

@@ -14,7 +14,7 @@ spec:
   chart:
     spec:
       chart: ./charts/microservice
-      version: "0.1.1"
+      version: "0.1.2"
       sourceRef:
         kind: GitRepository
         name: flux-system
@@ -38,9 +38,11 @@ spec:
         name: server 
     image: gcr.io/google-samples/microservices-demo/productcatalogservice:v0.8.0
     ingress:
+      enabled: true
       name: productcatalogservice-ingress
-      path : "/catalog"
-      path_type: Prefix      
+      path : "/"
+      path_type: Prefix
+      host: productcatalogservice
     env:
     - name: PORT
       value: "3550"
