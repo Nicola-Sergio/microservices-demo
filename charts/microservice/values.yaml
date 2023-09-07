@@ -57,7 +57,7 @@ ingress:
   path_type: Prefix
   path: "/"
   name: prova
-  enabled: true
+  enabled: false
   className: ""
   labels: {}
   annotations:
