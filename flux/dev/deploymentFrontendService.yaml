@@ -58,3 +58,7 @@ spec:
       value: "checkoutservice:5050"
     - name: AD_SERVICE_ADDR
       value: "adservice:9555"
+    - name: ENABLE_PROFILER
+      value: "0"
+    - name: FRONTEND_MESSAGE
+      value: "Hello from the frontend"
